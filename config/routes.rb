@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'kalibro_configurations/get_statistic' => 'kalibro_configurations#get_statistic'
   devise_for :users
   get 'users/:user_id/projects' => 'users#projects', as: :user_projects
 

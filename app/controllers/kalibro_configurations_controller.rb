@@ -34,6 +34,10 @@ class KalibroConfigurationsController < ApplicationController
     end
   end
 
+  def get_statistic
+      @statistic = Statistic.count_metric_configuration
+  end
+
   # GET /kalibro_configurations/1/edit
   # GET /kalibro_configurations/1/edit.json
   def edit
@@ -73,6 +77,12 @@ class KalibroConfigurationsController < ApplicationController
   def kalibro_configuration_params
     params[:kalibro_configuration][:name].strip!
     params[:kalibro_configuration]
+  end
+
+  def get_statistic_metric
+       hash = {}
+       hash = Statistic.count_metric_configuration
+      
   end
 
   # Extracted code from create action
