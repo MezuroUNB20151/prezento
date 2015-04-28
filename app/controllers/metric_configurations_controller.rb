@@ -8,6 +8,7 @@ class MetricConfigurationsController < BaseMetricConfigurationsController
   def new
     super
     metric_configuration.metric = KalibroClient::Entities::Processor::MetricCollectorDetails.find_by_name(params[:metric_collector_name]).find_metric_by_code params[:metric_code]
+    @statistic = Statistic.count_metric_configuration(params[:metric_code])
   end
 
   def create
