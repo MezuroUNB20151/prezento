@@ -8,7 +8,9 @@ class MetricConfigurationsController < BaseMetricConfigurationsController
   def new
     super
     metric_configuration.metric = KalibroClient::Entities::Processor::MetricCollectorDetails.find_by_name(params[:metric_collector_name]).find_metric_by_code params[:metric_code]
-    @statistic = Statistic.count_metric_configuration(params[:metric_code])['metric_percentage'].round(2)
+    @total_metrics = Statistic.count_metric_configuration["count_metric_name"]["total_value"].to_f
+    @statistics = Statistic.count_metric_configuration["count_metric_name"][metric_configuration.metric.name].to_f
+    @statistics = (@statistics/@total_metrics*100).round(2)
   end
 
   def create
