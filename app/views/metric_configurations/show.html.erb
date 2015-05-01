@@ -38,6 +38,11 @@
 </p>
 
 <p>
+  <strong>Percentage of use:</strong>
+  <%= "#{@statistic} %" %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <% if @metric_configuration.metric.description.nil? %>
     <%= "There is no description available." %>

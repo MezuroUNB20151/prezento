@@ -8,7 +8,12 @@ class MetricConfigurationsController < BaseMetricConfigurationsController
   def new
     super
     metric_configuration.metric = KalibroClient::Entities::Processor::MetricCollectorDetails.find_by_name(params[:metric_collector_name]).find_metric_by_code params[:metric_code]
-    @statistic = Statistic.get_metric_percentage(params[:metric_code])["metric_percentage"].round(2)
+    percentage_of_use(params[:metric_code])
+  end
+
+  def show
+    super
+    percentage_of_use(metric_configuration.metric.code)
   end
 
   def create
@@ -76,5 +81,10 @@ class MetricConfigurationsController < BaseMetricConfigurationsController
     else
       failed_action(format, 'new')
     end
+  end
+
+  # Show statistics on new and show methods
+  def percentage_of_use(metric_code)
+    @statistic = Statistic.get_metric_percentage(metric_code)["metric_percentage"]
   end
 end
