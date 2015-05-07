@@ -85,6 +85,6 @@ class MetricConfigurationsController < BaseMetricConfigurationsController
 
   # Show statistics on new and show methods
   def percentage_of_use(metric_code)
-    @statistic = Statistic.get_metric_percentage(metric_code)["metric_percentage"]
+    @statistic = Statistic.metric_percentage(metric_code)["metric_percentage"]
   end
 end
