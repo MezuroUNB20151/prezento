@@ -20,4 +20,3 @@
 //= require_tree .
 //= require colorpicker
 = require jquery-ui/progressbar
-

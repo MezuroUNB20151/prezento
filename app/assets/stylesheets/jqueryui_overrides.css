@@ -2,3 +2,18 @@
 .ui-widget-content a {
   color: #0088CC;
 }
+
+.ui-progressbar {
+  position: relative;
+ }
+
+.progress-label {
+  position: absolute;
+  left: 45%;
+  color:#222222;
+  font-size: 15px;
+}
+
+.ui-progressbar .ui-progressbar-value {
+  margin: 0px;
+}
