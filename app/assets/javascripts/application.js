@@ -19,3 +19,5 @@
 //= require Chart
 //= require_tree .
 //= require colorpicker
+= require jquery-ui/progressbar
+

@@ -9,4 +9,6 @@ if(current_path == '<%= project_repository_path(project_id: @repository.project_
   $('div#processing_information').html('<%= escape_javascript(render partial: "processing_information") %>');
   repository = new Module.Repository(<%= @repository.project_id %>, <%= @repository.id %>)
   repository.schedule_poll_state('<%= @processing.state %>')
+
+  setTimeout(progress(), 8 );
 }
